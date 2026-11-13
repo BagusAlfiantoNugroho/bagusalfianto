@@ -33,49 +33,58 @@
     #hero {
       position: relative;
       overflow: hidden;
-      background: none !important; /* Menimpa gambar background bawaan template */
+      background: none !important;
     }
     #hero-video {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: 0;
+      transform: translateX(-50%) translateY(-50%);
       object-fit: cover;
-      z-index: -1;
     }
     #hero::before {
       content: "";
-      background: rgba(5, 13, 24, 0.4); /* Lapisan transparan gelap agar teks lebih jelas */
+      background: rgba(5, 13, 24, 0.4);
       position: absolute;
       bottom: 0;
       top: 0;
       left: 0;
       right: 0;
-      z-index: 0;
-    }
-    #hero .hero-container {
       z-index: 1;
     }
-
-    /* --- Custom Information (Resume) Background --- */
-    #resume {
-      position: relative;
-      background-color: transparent !important;
-      padding-bottom: 60px;
+    #hero .hero-container {
+      z-index: 2;
     }
-    #resume::before {
+
+    /* --- Custom Information (Resume) Background Sejajar Container --- */
+    #resume {
+      background-color: transparent !important;
+      padding: 60px 0;
+    }
+    #resume .container {
+      position: relative;
+      overflow: hidden; /* Memastikan efek blur tidak melebar keluar kotak */
+      border-radius: 20px; /* Sudut melengkung rapi */
+      padding: 40px 35px; /* Memberi ruang napas di dalam kotak agar teks tidak mepet pinggir */
+      z-index: 1;
+    }
+    #resume .container::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: -15px;
+      left: -15px;
+      right: -15px;
+      bottom: -15px;
       /* Ganti 'hero-bg.jpg' jika nama file gambar prosesor Anda berbeda */
       background: url('assets/img/hero-bg.jpg') center center;
       background-size: cover;
-      background-attachment: fixed; /* Membuat efek parallax saat di-scroll */
-      filter: blur(8px) brightness(0.3); /* Efek blur dan penggelapan background */
+      background-attachment: fixed;
+      filter: blur(8px) brightness(0.35);
       z-index: -1;
     }
     
@@ -84,7 +93,7 @@
       color: #ffffff;
     }
     #resume .section-title h2::after {
-      background: #149ddd; /* Garis biru di bawah judul */
+      background: #149ddd;
     }
     #resume .resume-title {
       color: #ffffff;
@@ -106,16 +115,10 @@
       border: 2px solid #149ddd;
     }
     #resume .resume-item {
-      border-left: 2px solid rgba(255, 255, 255, 0.2); 
+      border-left: 2px solid rgba(255, 255, 255, 0.25); 
     }
   </style>
 
-  <!-- =======================================================
-  * Template Name: iPortfolio - v3.7.0
-  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -153,9 +156,9 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     
-    <!-- Video Background -->
+    <!-- Video Background (loop, autoplay, tanpa suara) -->
     <video autoplay loop muted playsinline id="hero-video">
-      <source src="assets/img/video.mp4" type="video/mp4">
+      <source src="assets/img/Video.mp4" type="video/mp4">
     </video>
 
     <div class="hero-container" data-aos="fade-in">
@@ -441,6 +444,18 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  
+  <!-- Script Autoplay Video Paksa -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var video = document.getElementById('hero-video');
+      if (video) {
+        video.play().catch(function(error) {
+          console.log("Autoplay video diblokir:", error);
+        });
+      }
+    });
+  </script>
 
 </body>
 
