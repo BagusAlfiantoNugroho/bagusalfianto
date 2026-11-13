@@ -28,6 +28,88 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+  <style>
+    /* --- Custom Hero Video Background --- */
+    #hero {
+      position: relative;
+      overflow: hidden;
+      background: none !important; /* Menimpa gambar background bawaan template */
+    }
+    #hero-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    #hero::before {
+      content: "";
+      background: rgba(5, 13, 24, 0.4); /* Lapisan transparan gelap agar teks lebih jelas */
+      position: absolute;
+      bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 0;
+    }
+    #hero .hero-container {
+      z-index: 1;
+    }
+
+    /* --- Custom Information (Resume) Background --- */
+    #resume {
+      position: relative;
+      background-color: transparent !important;
+      padding-bottom: 60px;
+    }
+    #resume::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /* Ganti 'hero-bg.jpg' jika nama file gambar prosesor Anda berbeda */
+      background: url('assets/img/hero-bg.jpg') center center;
+      background-size: cover;
+      background-attachment: fixed; /* Membuat efek parallax saat di-scroll */
+      filter: blur(8px) brightness(0.3); /* Efek blur dan penggelapan background */
+      z-index: -1;
+    }
+    
+    /* Mengubah warna teks di bagian Information menjadi putih agar kontras dengan background gelap */
+    #resume .section-title h2 {
+      color: #ffffff;
+    }
+    #resume .section-title h2::after {
+      background: #149ddd; /* Garis biru di bawah judul */
+    }
+    #resume .resume-title {
+      color: #ffffff;
+    }
+    #resume .resume-item h4 {
+      color: #ffffff;
+    }
+    #resume .resume-item h5 {
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+    }
+    #resume .resume-item p,
+    #resume .resume-item ul li,
+    #resume .resume-item em {
+      color: #f2f2f2; 
+    }
+    #resume .resume-item::before {
+      background: #ffffff; 
+      border: 2px solid #149ddd;
+    }
+    #resume .resume-item {
+      border-left: 2px solid rgba(255, 255, 255, 0.2); 
+    }
+  </style>
+
   <!-- =======================================================
   * Template Name: iPortfolio - v3.7.0
   * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
@@ -70,6 +152,12 @@
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    
+    <!-- Video Background -->
+    <video autoplay loop muted playsinline id="hero-video">
+      <source src="assets/img/video.mp4" type="video/mp4">
+    </video>
+
     <div class="hero-container" data-aos="fade-in">
       <h1>Bagus Alfianto Nugroho</h1>
       <p><span class="typed" data-typed-items="Data Analyst - Supervisor - PT. Orang Tua Group."></span></p>
@@ -84,7 +172,7 @@
 
         <div class="section-title">
           <h2>About</h2>
-          <p>Nama saya Bagus Alfianto Nugroho. Anda bisa memanggil saya Bagus. Sebagai lulusan Sistem Informasi, saya memadukan pemahaman mendalam di bidang infrastruktur IT dengan keahlian analitis tingkat lanjut. Saya memiliki ketertarikan besar terhadap perkembangan teknologi dan inovasi sistem. Selain tersertifikasi IT Essentials oleh Cisco, saya juga memiliki keahlian komprehensif yang mencakup Data Analytics, SQL, hingga pemrograman (Python, PHP, VBA). Saya adalah individu yang adaptif, berorientasi pada pemecahan masalah, dan selalu antusias dalam memanfaatkan teknologi untuk menciptakan solusi digital yang efisien dan berdampak positif bagi perusahaan.</p>
+          <p>Saya adalah seorang profesional di bidang teknologi dan analisis data dengan rekam jejak yang solid dalam mengubah data kompleks menjadi wawasan bisnis yang strategis. Saat ini saya menjabat sebagai Supervisor Data Analyst di PT. Orang Tua Group, memimpin proses monitoring dan analisis data penjualan skala besar. Berbekal latar belakang Sistem Informasi dari Universitas Darma Persada, penguasaan berbagai tools analitik (seperti SQL, Excel Macro, dan BI), serta sertifikasi IT Essentials dari Cisco Networking Academy, saya berkomitmen untuk terus mengoptimalkan efisiensi operasional dan mendukung pengambilan keputusan perusahaan berbasis data yang akurat.</p>
         </div>
 
         <div class="row">
@@ -262,7 +350,7 @@
       </div>
     </section><!-- End Resume Section -->
 
- <!-- ======= Projects Section ======= -->
+    <!-- ======= Projects Section ======= -->
     <section id="portfolio" class="portfolio section-bg">
       <div class="container">
 
@@ -271,7 +359,6 @@
           <p>Berikut adalah beberapa proyek yang telah saya kerjakan. Anda dapat membaca deskripsi singkat dari masing-masing proyek dan mengunjungi tautan demo yang telah disediakan.</p>
         </div>
 
-        <!-- Menggunakan Grid Card Bootstrap agar rapi dan teks mudah dibaca -->
         <div class="row" data-aos="fade-up" data-aos-delay="100">
 
           <!-- Item 1: Web Portfolio -->
@@ -284,7 +371,7 @@
                 </p>
                 <div class="mt-auto">
                   <a href="https://bagusalfianto.vercel.app/" target="_blank" class="btn btn-primary btn-sm" style="background-color: #149ddd; border: none;">
-                    <i class="bx bx-world"></i> Kunjungi
+                    <i class="bx bx-world"></i> Kunjungi Demo
                   </a>
                 </div>
               </div>
@@ -295,13 +382,13 @@
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100 shadow-sm border-0 p-2">
               <div class="card-body d-flex flex-column">
-                <h5 class="card-title" style="color: #173b6c; font-weight: bold;">Dashboard Cek Omset Toko</h5>
+                <h5 class="card-title" style="color: #173b6c; font-weight: bold;">Dashboard Omset Toko</h5>
                 <p class="card-text text-muted mb-4" style="font-size: 15px;">
-                  Aplikasi dashboard analitik berbasis Streamlit dan Python. Proyek ini bertujuan untuk memonitor data omset harian secara real-time untuk sales.
+                  Aplikasi dashboard analitik berbasis Streamlit dan Python. Proyek ini bertujuan untuk memonitor, memvisualisasikan, serta menganalisis data omset harian secara real-time.
                 </p>
                 <div class="mt-auto">
                   <a href="https://bagussdaab4.streamlit.app/" target="_blank" class="btn btn-primary btn-sm" style="background-color: #149ddd; border: none;">
-                    <i class="bx bx-world"></i> Kunjungi
+                    <i class="bx bx-world"></i> Kunjungi Demo
                   </a>
                 </div>
               </div>
@@ -314,11 +401,11 @@
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title" style="color: #173b6c; font-weight: bold;">mKenzo.xyz</h5>
                 <p class="card-text text-muted mb-4" style="font-size: 15px;">
-                  Platform website AI Based yang interaktif berfokus pada penyediaan layanan pembuatan berkas kerja serta website yang terintregasi dengan AI dengan antarmuka yang fungsional, responsif, dan ramah pengguna.
+                  Platform website interaktif (mKenzo) yang berfokus pada penyajian informasi dan layanan digital dengan antarmuka yang fungsional, responsif, dan ramah pengguna.
                 </p>
                 <div class="mt-auto">
                   <a href="https://mkenzo.xyz/" target="_blank" class="btn btn-primary btn-sm" style="background-color: #149ddd; border: none;">
-                    <i class="bx bx-world"></i> Kunjungi
+                    <i class="bx bx-world"></i> Kunjungi Demo
                   </a>
                 </div>
               </div>
