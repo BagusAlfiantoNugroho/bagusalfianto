@@ -43,11 +43,11 @@
       height: 100vh;
       z-index: -1;
       object-fit: contain;
-      background-color: #000000;
+      background-color: #040b14; /* Warna hitam kebiruan senada dengan sidebar */
     }
     #hero::before {
       content: "";
-      background: rgba(5, 13, 24, 0.35);
+      background: rgba(4, 11, 20, 0.35);
       position: fixed;
       bottom: 0;
       top: 0;
@@ -76,21 +76,21 @@
       background-color: #ffffff;
     }
 
-    /* --- Custom Footer Get In Touch (Menimpa Footer Bawaan Template) --- */
+    /* --- Custom Footer Get In Touch (Senada dengan Sidebar #040b14) --- */
     #footer {
       position: relative !important;
       left: auto !important;
       bottom: auto !important;
       width: auto !important;
       z-index: 3;
-      background-color: #141414 !important;
+      background-color: #040b14 !important; /* Warna utama sidebar */
       color: #ffffff;
       padding: 70px 20px 30px 20px !important;
       text-align: center;
     }
     @media (min-width: 1199px) {
       #footer {
-        margin-left: 300px; /* Menyesuaikan area di sebelah kanan sidebar */
+        margin-left: 300px;
       }
     }
     .footer-title {
@@ -101,7 +101,7 @@
       font-family: "Poppins", sans-serif;
     }
     .footer-subtitle {
-      color: #9e9e9e;
+      color: #a8a9b4;
       font-size: 15px;
       max-width: 550px;
       margin: 0 auto 35px auto;
@@ -117,8 +117,8 @@
     .contact-card-email {
       display: flex;
       align-items: center;
-      background-color: #1e1e1e;
-      border: 1px solid #333333;
+      background-color: #212431; /* Warna aksen tombol sidebar */
+      border: 1px solid #2c2f3f;
       border-radius: 12px;
       padding: 12px 22px;
       text-decoration: none;
@@ -126,7 +126,7 @@
       transition: all 0.3s ease;
     }
     .contact-card-email:hover {
-      background-color: #282828;
+      background-color: #2c2f3f;
       border-color: #149ddd;
       color: #ffffff;
       transform: translateY(-2px);
@@ -134,7 +134,7 @@
     .contact-email-icon {
       width: 40px;
       height: 40px;
-      background-color: #2c2c2c;
+      background-color: #2c2f3f;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -151,7 +151,7 @@
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 1px;
-      color: #888888;
+      color: #a8a9b4;
       text-transform: uppercase;
     }
     .contact-email-address {
@@ -165,8 +165,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: #1e1e1e;
-      border: 1px solid #333333;
+      background-color: #212431; /* Warna aksen tombol sidebar */
+      border: 1px solid #2c2f3f;
       border-radius: 12px;
       color: #ffffff;
       font-size: 22px;
@@ -174,16 +174,16 @@
       transition: all 0.3s ease;
     }
     .contact-card-social:hover {
-      background-color: #282828;
+      background-color: #149ddd;
       border-color: #149ddd;
-      color: #149ddd;
+      color: #ffffff;
       transform: translateY(-2px);
     }
     .footer-bottom {
-      border-top: 1px solid #262626;
+      border-top: 1px solid #212431;
       padding-top: 25px;
       font-size: 13px;
-      color: #777777;
+      color: #a8a9b4;
     }
   </style>
 </head>
@@ -441,7 +441,7 @@
                 </p>
                 <div class="mt-auto">
                   <a href="https://bagusalfianto.vercel.app/" target="_blank" class="btn btn-primary btn-sm" style="background-color: #149ddd; border: none;">
-                    <i class="bx bx-world"></i> Kunjungi
+                    <i class="bx bx-world"></i> Kunjungi Demo
                   </a>
                 </div>
               </div>
@@ -458,7 +458,7 @@
                 </p>
                 <div class="mt-auto">
                   <a href="https://bagussdaab4.streamlit.app/" target="_blank" class="btn btn-primary btn-sm" style="background-color: #149ddd; border: none;">
-                    <i class="bx bx-world"></i> Kunjungi
+                    <i class="bx bx-world"></i> Kunjungi Demo
                   </a>
                 </div>
               </div>
@@ -475,7 +475,7 @@
                 </p>
                 <div class="mt-auto">
                   <a href="https://mkenzo.xyz/" target="_blank" class="btn btn-primary btn-sm" style="background-color: #149ddd; border: none;">
-                    <i class="bx bx-world"></i> Kunjungi
+                    <i class="bx bx-world"></i> Kunjungi Demo
                   </a>
                 </div>
               </div>
