@@ -42,12 +42,12 @@
       width: 100%;
       height: 100vh;
       z-index: -1;
-      object-fit: contain; /* Menampilkan video utuh tanpa terpotong */
-      background-color: #000000; /* Memberikan list/bar hitam di atas dan bawah */
+      object-fit: contain;
+      background-color: #000000;
     }
     #hero::before {
       content: "";
-      background: rgba(5, 13, 24, 0.35); /* Lapisan gelap tipis agar teks hero jelas */
+      background: rgba(5, 13, 24, 0.35);
       position: fixed;
       bottom: 0;
       top: 0;
@@ -69,15 +69,121 @@
       }
     }
 
-    /* --- Halaman Utama (Main & Footer) Menutupi Video Saat Scroll --- */
+    /* --- Halaman Utama (Main) Menutupi Video Saat Scroll --- */
     #main {
       position: relative;
       z-index: 3;
-      background-color: #ffffff; /* Latar putih solid untuk menutupi video */
+      background-color: #ffffff;
     }
+
+    /* --- Custom Footer Get In Touch (Menimpa Footer Bawaan Template) --- */
     #footer {
-      position: relative;
+      position: relative !important;
+      left: auto !important;
+      bottom: auto !important;
+      width: auto !important;
       z-index: 3;
+      background-color: #141414 !important;
+      color: #ffffff;
+      padding: 70px 20px 30px 20px !important;
+      text-align: center;
+    }
+    @media (min-width: 1199px) {
+      #footer {
+        margin-left: 300px; /* Menyesuaikan area di sebelah kanan sidebar */
+      }
+    }
+    .footer-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 12px;
+      font-family: "Poppins", sans-serif;
+    }
+    .footer-subtitle {
+      color: #9e9e9e;
+      font-size: 15px;
+      max-width: 550px;
+      margin: 0 auto 35px auto;
+    }
+    .contact-cards-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 60px;
+    }
+    .contact-card-email {
+      display: flex;
+      align-items: center;
+      background-color: #1e1e1e;
+      border: 1px solid #333333;
+      border-radius: 12px;
+      padding: 12px 22px;
+      text-decoration: none;
+      color: #ffffff;
+      transition: all 0.3s ease;
+    }
+    .contact-card-email:hover {
+      background-color: #282828;
+      border-color: #149ddd;
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+    .contact-email-icon {
+      width: 40px;
+      height: 40px;
+      background-color: #2c2c2c;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      font-size: 18px;
+      color: #ffffff;
+    }
+    .contact-email-text {
+      text-align: left;
+    }
+    .contact-email-label {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #888888;
+      text-transform: uppercase;
+    }
+    .contact-email-address {
+      font-size: 14px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+    .contact-card-social {
+      width: 66px;
+      height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #1e1e1e;
+      border: 1px solid #333333;
+      border-radius: 12px;
+      color: #ffffff;
+      font-size: 22px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .contact-card-social:hover {
+      background-color: #282828;
+      border-color: #149ddd;
+      color: #149ddd;
+      transform: translateY(-2px);
+    }
+    .footer-bottom {
+      border-top: 1px solid #262626;
+      padding-top: 25px;
+      font-size: 13px;
+      color: #777777;
     }
   </style>
 </head>
@@ -335,7 +441,7 @@
                 </p>
                 <div class="mt-auto">
                   <a href="https://bagusalfianto.vercel.app/" target="_blank" class="btn btn-primary btn-sm" style="background-color: #149ddd; border: none;">
-                    <i class="bx bx-world"></i> Kunjungi Demo
+                    <i class="bx bx-world"></i> Kunjungi
                   </a>
                 </div>
               </div>
@@ -348,11 +454,11 @@
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title" style="color: #173b6c; font-weight: bold;">Dashboard Omset Toko</h5>
                 <p class="card-text text-muted mb-4" style="font-size: 15px;">
-                  Aplikasi dashboard analitik berbasis Streamlit dan Python. Proyek ini bertujuan untuk memonitor, memvisualisasikan, serta menganalisis data omset harian secara real-time.
+                  Aplikasi dashboard berbasis Streamlit dan Python. Proyek ini bertujuan untuk memonitor, memvisualisasikan data omset harian.
                 </p>
                 <div class="mt-auto">
                   <a href="https://bagussdaab4.streamlit.app/" target="_blank" class="btn btn-primary btn-sm" style="background-color: #149ddd; border: none;">
-                    <i class="bx bx-world"></i> Kunjungi Demo
+                    <i class="bx bx-world"></i> Kunjungi
                   </a>
                 </div>
               </div>
@@ -369,7 +475,7 @@
                 </p>
                 <div class="mt-auto">
                   <a href="https://mkenzo.xyz/" target="_blank" class="btn btn-primary btn-sm" style="background-color: #149ddd; border: none;">
-                    <i class="bx bx-world"></i> Kunjungi Demo
+                    <i class="bx bx-world"></i> Kunjungi
                   </a>
                 </div>
               </div>
@@ -383,10 +489,48 @@
 
   </main><!-- End #main -->
 
-  <!-- ======= Footer ======= -->
+  <!-- ======= Footer (Get In Touch) ======= -->
   <footer id="footer">
-    <div class="copyright">
-      &copy; Copyright <strong><span>Bagus Alfianto Nugroho</span></strong>
+    <div class="container">
+      <h2 class="footer-title">Get In Touch</h2>
+      <p class="footer-subtitle">Saya selalu terbuka untuk mendiskusikan proyek baru, peluang kerja sama, atau kolaborasi.</p>
+      
+      <div class="contact-cards-wrapper">
+        <!-- Email Box -->
+        <a href="mailto:bagusalfiantonugroho@gmail.com" class="contact-card-email">
+          <div class="contact-email-icon">
+            <i class="far fa-envelope"></i>
+          </div>
+          <div class="contact-email-text">
+            <span class="contact-email-label">EMAIL ME</span>
+            <span class="contact-email-address">bagusalfiantonugroho@gmail.com</span>
+          </div>
+        </a>
+
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/bagus-alfiato-nugroho/" target="_blank" class="contact-card-social" title="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/bagusalfianto_/" target="_blank" class="contact-card-social" title="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+
+        <!-- WhatsApp -->
+        <a href="https://api.whatsapp.com/send/?phone=6281287850525&text&app_absent=0" target="_blank" class="contact-card-social" title="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+
+        <!-- Sertifikat / CV -->
+        <a href="assets/pdf/sertifikat.pdf" target="_blank" class="contact-card-social" title="Sertifikat">
+          <i class="far fa-file-alt"></i>
+        </a>
+      </div>
+
+      <div class="footer-bottom">
+        &copy; 2026 <strong><span>Bagus Alfianto Nugroho</span></strong>. All rights reserved.
+      </div>
     </div>
   </footer><!-- End Footer -->
 
